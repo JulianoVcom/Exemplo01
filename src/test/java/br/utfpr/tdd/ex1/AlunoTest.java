@@ -68,4 +68,23 @@ public class AlunoTest {
         
         assertEquals((5.0 + 6.0 + mediaRAA) / 3.0, aluno.getNF(), 0.01);
     }        
+    
+    @Test
+    public void testNotaFinalcomRAAMaiorQueZero() {
+        Aluno aluno = new Aluno("RA", "Joao Da Silva");
+        
+        //Média atividades práticas = 8.2
+        aluno.addNotaAtividadePratica(7.0);
+        aluno.addNotaAtividadePratica(10.0);
+        aluno.addNotaAtividadePratica(7.0);
+        aluno.addNotaAtividadePratica(9.0);
+        aluno.addNotaAtividadePratica(8.0);
+        double mediaRAA = (7.0 + 10.0 + 7.0 + 9.0 + 8.0)/5.0;
+        
+        aluno.setNotaProjeto(8.0);
+        aluno.setNotaRAA(9.0);
+        
+        assertEquals(6, aluno.getNF(), 0.01);
+    }
+
 }
